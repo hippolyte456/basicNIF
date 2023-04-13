@@ -3,7 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import zoom
 from scipy.io import savemat
-from scipy.misc import imsave
+import imageio
+
 
 import chainer.functions as F
 from chainer.training import Extension
@@ -82,4 +83,4 @@ class PlotLearnedParams(Extension):
 
         for ch_idx in range(convW.shape[0]):
             chan = np.squeeze( convW[ch_idx] ) 
-            imsave(roi+'_chan'+str(ch_idx)+'.png', chan) 
+            imageio.imwrite(roi+'_chan'+str(ch_idx)+'.png', chan)
