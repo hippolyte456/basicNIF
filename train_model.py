@@ -133,7 +133,7 @@ class Regressor(cn.Chain):
     def forward(self, **datadict):
 
         obs = self.predictor(datadict['x'])
-
+#### implémentation de la loss ici ####
         loss = 0
         for roi in obs.keys(): 
             loss += F.mean_squared_error(datadict[roi], obs[roi])
