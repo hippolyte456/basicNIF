@@ -152,6 +152,9 @@ if __name__ == "__main__":
     bold = loadmat('bold.mat')
 
     bold  = { 'V1':bold['V1'], 'V2':bold['V2'] }
+    print(bold['V1'].shape)
+    print(stim.shape)
+
 
     train = LetterData(stim, bold, rois)
     train_iter = cn.iterators.SerialIterator( train , cfg.nbatch ) 
